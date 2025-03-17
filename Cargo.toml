@@ -1,0 +1,10 @@
+[package]
+name = "rotary-permutator"
+version = "0.1.0"
+edition = "2024"
+license = "MIT"
+description = "Permutations iterator"
+keyswords = ["permutation", "combination", "generator", "rotary", "permutator"]
+
+[dependencies]
+rotary-permutator-derive = { path = "rotary-permutator-derive" }
