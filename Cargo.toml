@@ -7,4 +7,4 @@ description = "Permutations iterator"
 keyswords = ["permutation", "combination", "generator", "rotary", "permutator"]
 
 [dependencies]
-rotary-permutator-derive = { path = "rotary-permutator-derive" }
+rotary-permutator-derive = { path = "rotary-permutator-derive", version = "0.1.0" }
