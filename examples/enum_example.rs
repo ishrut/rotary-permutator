@@ -7,12 +7,6 @@ pub enum Levels {
     Low,
 }
 
-impl std::default::Default for Levels {
-    fn default() -> Self {
-        Self::High
-    }
-}
-
 fn main() {
     let mut rotor_engine = RotorEngine::init(3);
     let mut count = 0;

@@ -7,7 +7,7 @@ It implements the Iterator trait for usability.
 
 ## Examples
 
-To generate permutations from a list of chars and a given size of permuations:
+To generate permutations from a list of chars and a given size of permutations:
 ```rust
 use rotary_permutator::CharRotor;
 
@@ -50,7 +50,7 @@ output:
 ['z', 'z', 'z']
 ```
 
-Permutations from variants of an enum, the Default and Clone trait have to be implemented.
+Permutations from variants of an enum.
 ```rust
 use rotary_permutator::EnumRotor;
 
@@ -59,12 +59,6 @@ pub enum Levels {
     High,
     Normal,
     Low,
-}
-
-impl std::default::Default for Levels {
-    fn default() -> Self {
-        Self::High
-    }
 }
 
 fn main() {

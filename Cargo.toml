@@ -9,4 +9,4 @@ homepage = "https://github.com/ishrut/rotary-permutator"
 keywords = ["permutation", "combination", "generator", "rotary", "permutator"]
 
 [dependencies]
-rotary-permutator-derive = { version = "0.1.0" }
+rotary-permutator-derive = { version = "0.1.1" }
