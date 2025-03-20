@@ -29,9 +29,7 @@ dependencies = [
 
 [[package]]
 name = "rotary-permutator-derive"
-version = "0.1.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "cf6a31b4cd87ae7f0aa5205747da2515b382b755ee1c9d56360c0d9c0a9413ac"
+version = "0.1.11"
 dependencies = [
  "proc-macro2",
  "quote",

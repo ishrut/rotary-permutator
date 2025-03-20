@@ -2,8 +2,12 @@
 
 The algorithm is inspired from mechanical rotary permutation generators like the cryptex.
 It generates permutations of a given length with repetition from a list of chars or variants of an enum.
-There are functions to generate permutations from chars and enums.
 It implements the Iterator trait for usability.
+
+CharRotor - It is a struct that is initialised and then generates the permutations and returns them as `Vec<char>`.
+EnumRotor - The macro expands to implementation functions of the enum and generates a `RotorEngine<T>` struct which implements the iterator.
+
+For EnumRotor the dafault trait has to be implemented. It is the starting state of the machine.
 
 ## Examples
 
@@ -54,15 +58,16 @@ Permutations from variants of an enum.
 ```rust
 use rotary_permutator::EnumRotor;
 
-#[derive(EnumRotor, Debug, Clone)]
+#[derive(EnumRotor, Debug, Clone, Default)]
 pub enum Levels {
+    #[default]
     High,
     Normal,
     Low,
 }
 
 fn main() {
-    let mut rotor_engine = RotorEngine::init(3);
+    let mut rotor_engine = Levels::init_rotor_engine(3);
     let mut count = 0;
     while let Some(perm) = rotor_engine.next() {
         println!("{:?}", perm);

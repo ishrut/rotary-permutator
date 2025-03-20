@@ -1,6 +1,6 @@
 [package]
 name = "rotary-permutator"
-version = "0.1.1"
+version = "0.1.11"
 edition = "2024"
 license = "MIT"
 description = "Permutations iterator"
@@ -9,4 +9,4 @@ homepage = "https://github.com/ishrut/rotary-permutator"
 keywords = ["permutation", "combination", "generator", "rotary", "permutator"]
 
 [dependencies]
-rotary-permutator-derive = { version = "0.1.1" }
+rotary-permutator-derive = { version = "0.1.11" }

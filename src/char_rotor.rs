@@ -1,4 +1,3 @@
-
 /// This struct is initialised and tracks states for the iterator.
 #[derive(Debug, Clone)]
 pub struct CharRotor {
@@ -13,7 +12,6 @@ pub struct CharRotor {
 }
 
 impl CharRotor {
-    
     /// Creates an initial state for the machine from a given size.
     /// The size is the length of the permutation.
     /// # Example
@@ -22,10 +20,15 @@ impl CharRotor {
     /// ```
     pub fn init(chars: Vec<char>, size: usize) -> Self {
         let mut blocks = Vec::new();
-        for _i in 0..size{
+        for _i in 0..size {
             blocks.push(chars[0].clone());
         }
-        Self { blocks, trigger: None, final_trigger: false, chars}
+        Self {
+            blocks,
+            trigger: None,
+            final_trigger: false,
+            chars,
+        }
     }
 
     /// Gets a capture of the current state of the machine.
@@ -37,17 +40,16 @@ impl CharRotor {
     fn get_char_idx(&self, ch: &char) -> Option<usize> {
         for (count, symbol) in self.chars.iter().enumerate() {
             if symbol == ch {
-                return Some(count)
+                return Some(count);
             }
         }
-        return None
+        return None;
     }
 
     // Rotates the wheel at index to the next state and sets triggers
     fn rot_at(&mut self, index: usize) {
-
         let symbol = self.blocks[index];
-        let symb_idx = self.get_char_idx(&symbol).unwrap(); 
+        let symb_idx = self.get_char_idx(&symbol).unwrap();
 
         if symb_idx < self.chars.len() - 1 {
             self.blocks[index] = self.chars[symb_idx + 1];
@@ -59,18 +61,16 @@ impl CharRotor {
                 self.final_trigger = true;
             }
         }
-
     }
 }
 
 impl std::iter::Iterator for CharRotor {
     type Item = Vec<char>;
     fn next(&mut self) -> Option<Self::Item> {
-
         while let Some(idx) = self.trigger {
             self.trigger = None;
             self.rot_at(idx);
-        }         
+        }
         let cap = self.blocks.clone();
         self.rot_at(self.blocks.len() - 1);
 
@@ -79,7 +79,5 @@ impl std::iter::Iterator for CharRotor {
         }
 
         Some(cap)
-        
     }
-    
 }

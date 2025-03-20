@@ -1,18 +1,16 @@
 use rotary_permutator::EnumRotor;
 
-#[derive(EnumRotor, Clone, Debug)]
+#[derive(EnumRotor, Clone, Debug, Default)]
 pub enum Levels {
+    #[default]
     High,
     Normal,
     Low,
 }
 
 fn main() {
-    let mut rotor_engine = RotorEngine::init(3);
-    let mut count = 0;
-    while let Some(perm) = rotor_engine.next() {
-        println!("{:?}", perm);
-        count += 1;
+    let mut levels_engine = Levels::init_rotor_engine(2);
+    while let Some(val) = levels_engine.next() {
+        println!("{:?}", val);
     }
-    println!("total: {}", count);
 }

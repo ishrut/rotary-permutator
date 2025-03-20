@@ -3,6 +3,5 @@
 
 mod char_rotor;
 
-
 pub use char_rotor::*;
 pub use rotary_permutator_derive::EnumRotor;
